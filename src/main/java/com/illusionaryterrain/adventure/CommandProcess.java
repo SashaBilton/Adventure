@@ -1,10 +1,6 @@
 package com.illusionaryterrain.adventure;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class CommandProcess {
 
@@ -28,6 +24,7 @@ public class CommandProcess {
             case "go" -> go(player, parameter);
             case "look" -> look(player);
             case "quit" -> quit(player);
+            case "take" -> take(player, parameter);
         }
 
 
@@ -58,4 +55,23 @@ public class CommandProcess {
         player.isAlive = false;
         Out.ln("Goodbye.");
     }
+
+    private void take(Player player, String parameter) {
+
+        ObjectItem taken = null;
+        for (ObjectItem item: player.location.contents) {
+            if (parameter.equals("")) {
+                player.location.showContents();
+            }
+            if (item.getKeywords().contains(parameter)) {
+                player.inventory.add(item);
+                taken = item;
+                Out.ln(parameter+" taken.");
+            }
+        }
+        if (taken != null) {
+            player.location.contents.remove(taken);
+        }
+    }
+
 }
