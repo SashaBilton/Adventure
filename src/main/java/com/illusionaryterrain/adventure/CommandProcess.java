@@ -33,7 +33,7 @@ public class CommandProcess {
 
     }
 
-    private void go(Player player, String parameter) {
+    protected void go(Player player, String parameter) {
 
         for (Exit exit: player.location.exits) {
             if (parameter.equals("")) {
@@ -60,7 +60,7 @@ public class CommandProcess {
         Out.ln("Goodbye.");
     }
 
-    private void take(Player player, String parameter) {
+    protected void take(Player player, String parameter) {
 
         ObjectItem taken = null;
         for (ObjectItem item: player.location.contents) {
@@ -79,7 +79,7 @@ public class CommandProcess {
     }
 
 
-    private void drop(Player player, String parameter) {
+    protected void drop(Player player, String parameter) {
 
         ObjectItem dropped = null;
         for (ObjectItem item: player.inventory) {
