@@ -25,6 +25,7 @@ public class CommandProcess {
             case "look" -> look(player);
             case "quit" -> quit(player);
             case "take" -> take(player, parameter);
+            case "help" -> help();
         }
 
 
@@ -72,6 +73,18 @@ public class CommandProcess {
         if (taken != null) {
             player.location.contents.remove(taken);
         }
+    }
+
+    private void help() {
+        Out.ln("I understand the following commands -");
+        Out.ln("look - describe where I am.");
+        Out.ln("go - list the exits available here.");
+        Out.ln("go <direction> - go in a particular direction or towards something.");
+        Out.ln("take - take an item from here.");
+        Out.ln("drop - leave an item here");
+        Out.ln("use - use an item");
+        Out.ln("quit - quit Adventure");
+        Out.ln("help - prints this list of commands");
     }
 
 }
