@@ -45,7 +45,7 @@ public class Main {
         cal.exits.add(irondoor2);
         irondoor2.location = hall;
 
-        SimpleObject candle = new SimpleObject("Flickering candle", ObjectItemType.LIGHT);
+        SimpleObject candle = new SimpleObject("A flickering candle.", ObjectItemType.LIGHT);
         candle.keywords.add("candle");
         hall.contents.add(candle);
 

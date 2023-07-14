@@ -25,6 +25,8 @@ public class CommandProcess {
             case "look" -> look(player);
             case "quit" -> quit(player);
             case "take" -> take(player, parameter);
+            case "drop" -> drop(player, parameter);
+            case "invent" -> invent(player);
             case "help" -> help();
         }
 
@@ -50,6 +52,7 @@ public class CommandProcess {
         player.printLongLocation();
         Out.ln("Obvious exits are -");
         player.location.showExits();
+        player.location.showContents();
     }
 
     private void quit(Player player) {
@@ -75,6 +78,28 @@ public class CommandProcess {
         }
     }
 
+
+    private void drop(Player player, String parameter) {
+
+        ObjectItem dropped = null;
+        for (ObjectItem item: player.inventory) {
+            if (item.getKeywords().contains(parameter)) {
+                player.location.contents.add(item);
+                dropped = item;
+                Out.ln(parameter+" dropped.");
+            }
+        }
+        if (dropped != null) {
+            player.inventory.remove(dropped);
+        }
+    }
+
+    private void invent(Player player) {
+        for (ObjectItem item: player.inventory) {
+            Out.ln(item.getDescription());
+        }
+    }
+
     private void help() {
         Out.ln("I understand the following commands -");
         Out.ln("look - describe where I am.");
@@ -82,6 +107,7 @@ public class CommandProcess {
         Out.ln("go <direction> - go in a particular direction or towards something.");
         Out.ln("take - take an item from here.");
         Out.ln("drop - leave an item here");
+        Out.ln("invent - list the items I'm carrying");
         Out.ln("use - use an item");
         Out.ln("quit - quit Adventure");
         Out.ln("help - prints this list of commands");
