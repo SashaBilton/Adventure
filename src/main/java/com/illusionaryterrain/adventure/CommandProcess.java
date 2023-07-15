@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CommandProcess {
 
 
-    public void work(Player player) {
+    public void input(Player player) {
         Out.sl(">");
         String line = new Scanner(System.in).nextLine();
         String[] input = line.split(" ");
@@ -17,88 +17,34 @@ public class CommandProcess {
                 parameter = input[1];
             }
         }
-        Out.ln(command);
-        Out.ln(parameter);
+        action(player, command, parameter);
+    }
+
+    public void action(Player player, String command, String parameter) {
 
         switch (command) {
-            case "go" -> go(player, parameter);
-            case "look" -> look(player);
+            case "go" -> player.go(parameter);
+            case "look" -> player.location.look();
             case "quit" -> quit(player);
-            case "take" -> take(player, parameter);
-            case "drop" -> drop(player, parameter);
-            case "invent" -> invent(player);
+            case "take" -> player.take(parameter);
+            case "drop" -> player.drop(parameter);
+            case "invent" -> player.invent();
             case "help" -> help();
         }
-
-
     }
 
-    protected void go(Player player, String parameter) {
-
-        for (Exit exit: player.location.exits) {
-            if (parameter.equals("")) {
-                Out.ln(exit.description);
-            }
-            if (exit.keywords.contains(parameter)) {
-                player.location.visited = true;
-                player.moved = true;
-                player.location = exit.location;
-            }
-        }
-    }
-
-    private void look(Player player) {
-        Out.sl("You are in ");
-        player.printLongLocation();
-        Out.ln("Obvious exits are -");
-        player.location.showExits();
-        player.location.showContents();
-    }
 
     private void quit(Player player) {
         player.isAlive = false;
         Out.ln("Goodbye.");
     }
 
-    protected void take(Player player, String parameter) {
-
-        ObjectItem taken = null;
-        for (ObjectItem item: player.location.contents) {
-            if (parameter.equals("")) {
-                player.location.showContents();
-            }
-            if (item.getKeywords().contains(parameter)) {
-                player.inventory.add(item);
-                taken = item;
-                Out.ln(parameter+" taken.");
-            }
-        }
-        if (taken != null) {
-            player.location.contents.remove(taken);
-        }
-    }
 
 
-    protected void drop(Player player, String parameter) {
 
-        ObjectItem dropped = null;
-        for (ObjectItem item: player.inventory) {
-            if (item.getKeywords().contains(parameter)) {
-                player.location.contents.add(item);
-                dropped = item;
-                Out.ln(parameter+" dropped.");
-            }
-        }
-        if (dropped != null) {
-            player.inventory.remove(dropped);
-        }
-    }
 
-    private void invent(Player player) {
-        for (ObjectItem item: player.inventory) {
-            Out.ln(item.getDescription());
-        }
-    }
+
+
 
     private void help() {
         Out.ln("I understand the following commands -");

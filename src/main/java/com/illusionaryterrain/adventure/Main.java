@@ -11,20 +11,12 @@ public class Main {
 
         while (player.isAlive) {
             if (player.moved) {
-                Out.sl("You are in ");
-                if (player.location.visited) {
-                    Out.ln(player.location.shortDescription);
-                } else {
-                    Out.ln(player.location.longDescription);
-                }
-                Out.ln("Obvious exits are -");
-                player.location.showExits();
-                player.location.showContents();
+                player.location.enter();
                 player.moved = false;
 
             }
             CommandProcess cp = new CommandProcess();
-            cp.work(player);
+            cp.input(player);
         }
     }
 
