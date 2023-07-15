@@ -13,8 +13,8 @@ class CommandProcessTest {
         Player p = new Player();
         Location l1 = new Location("Room 1");
         Location l2 = new Location("Room 2");
-        Exit exit = new Exit("room1toroom2");
-        exit.keywords.add("room1toroom2");
+        Exit exit = new Exit(l2,"room1toroom2", "room1toroom2");
+
         exit.location = l2;
         l1.exits.add(exit);
         p.location = l1;
@@ -30,8 +30,8 @@ class CommandProcessTest {
         Player p = new Player();
         Location l1 = new Location("Room 1");
         p.location = l1;
-        SimpleObject o = new SimpleObject("book", ObjectItemType.USELESS);
-        o.keywords.add("book");
+        SimpleObject o = new SimpleObject(ObjectItemType.USELESS, "book", "book");
+
         l1.contents.add(o);
         assertEquals("book", l1.contents.get(0).getDescription());
         cp.action(p,"take","book");

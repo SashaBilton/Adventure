@@ -14,6 +14,10 @@ public class Location {
     public Location(String shortDescription) {
         this.shortDescription = shortDescription;
     }
+    public Location(String shortDescription, String longDescription) {
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
+    }
 
     public void enter(){
         if (visited) {

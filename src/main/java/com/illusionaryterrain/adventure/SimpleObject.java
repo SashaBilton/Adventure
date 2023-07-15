@@ -10,9 +10,14 @@ public class SimpleObject implements ObjectItem{
 
     public ArrayList<String> keywords = new ArrayList<String>();
 
-    public SimpleObject(String description, ObjectItemType type) {
-        this.description = description;
+    public SimpleObject( ObjectItemType type, String... args) {
+        this.description = args[0];
         this.type = type;
+        int next = 1;
+        while (next < args.length) {
+            keywords.add(args[next]);
+            next++;
+        }
     }
 
     @Override

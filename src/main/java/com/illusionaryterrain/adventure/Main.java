@@ -3,7 +3,7 @@ package com.illusionaryterrain.adventure;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello and to Adventure!");
+        System.out.println("Hello and welcome to Adventure!");
 
         Location start = GenerateMap();
         Player player = new Player();
@@ -21,24 +21,24 @@ public class Main {
     }
 
     public static Location GenerateMap() {
-        Location hall = new Location("a long hall.");
-        hall.longDescription = "a long hall with an arched ceiling far above you and a chequered floor beneath.";
-        Exit irondoor = new Exit("An iron shod door in the east.");
-        irondoor.keywords.add("door");
-        irondoor.keywords.add("east");
+        Location hall = new Location(
+                "A long hall.",
+                "a long hall with an arched ceiling far above you and a chequered floor beneath.");
+
+
+        Location cal = new Location(
+                "The cauldron room.",
+                "a square dark room with a massive iron cauldron bubbling away in the centre of it.");
+
+        Exit irondoor = new Exit(cal, "An iron shod door in the east.", "door", "east");
         hall.exits.add(irondoor);
-
-        Location cal = new Location("the cauldron room ");
-        cal.longDescription = "a square dark room with a massive iron cauldron bubbling away in the centre of it.";
         irondoor.location = cal;
-        Exit irondoor2 = new Exit("An iron shod door in the west.");
-        irondoor2.keywords.add("door");
-        irondoor2.keywords.add("west");
-        cal.exits.add(irondoor2);
-        irondoor2.location = hall;
 
-        SimpleObject candle = new SimpleObject("A flickering candle.", ObjectItemType.LIGHT);
-        candle.keywords.add("candle");
+        Exit irondoor2 = new Exit(hall, "An iron shod door in the west.", "door", "west");
+        cal.exits.add(irondoor2);
+
+        SimpleObject candle = new SimpleObject( ObjectItemType.LIGHT, "A flickering candle.","candle");
+
         hall.contents.add(candle);
 
 
