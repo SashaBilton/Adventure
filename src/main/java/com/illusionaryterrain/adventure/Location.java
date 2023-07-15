@@ -10,6 +10,8 @@ public class Location {
     public List<Exit> exits = new ArrayList<Exit>();
     public List<ObjectItem> contents = new ArrayList<>();
 
+    public List<Event> events = new ArrayList<>();
+
 
     public Location(String shortDescription) {
         this.shortDescription = shortDescription;

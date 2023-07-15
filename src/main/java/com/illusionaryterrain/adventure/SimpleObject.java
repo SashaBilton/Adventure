@@ -9,6 +9,7 @@ public class SimpleObject implements ObjectItem{
     public ObjectItemType type = ObjectItemType.USELESS;
 
     public ArrayList<String> keywords = new ArrayList<String>();
+    public ArrayList<Event> events = new ArrayList<Event>();
 
     public SimpleObject( ObjectItemType type, String... args) {
         this.description = args[0];
@@ -49,4 +50,13 @@ public class SimpleObject implements ObjectItem{
     public void setKeywords(ArrayList<String> keywords) {
         this.keywords = keywords;
     }
+
+    @Override
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    @Override
+    public void setEvents(ArrayList<Event> events) { this.events = events;}
+
 }

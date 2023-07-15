@@ -10,5 +10,9 @@ public interface ObjectItem {
     public void setDescription(String description);
     public List<String> getKeywords();
     public void setKeywords(ArrayList<String> keywords);
+    public List<Event> getEvents();
+    public void setEvents(ArrayList<Event> events);
+
+
 
 }

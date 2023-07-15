@@ -39,6 +39,10 @@ public class Main {
 
         SimpleObject candle = new SimpleObject( ObjectItemType.LIGHT, "A flickering candle.","candle");
 
+        SimpleObjectEvent se = new SimpleObjectEvent(null);
+        KeywordObjectEvent ke = new KeywordObjectEvent(se, "light","candle");
+        candle.events.add(ke);
+
         hall.contents.add(candle);
 
 

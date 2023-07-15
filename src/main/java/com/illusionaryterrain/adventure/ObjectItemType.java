@@ -1,5 +1,5 @@
 package com.illusionaryterrain.adventure;
 
 public enum ObjectItemType {
-    USELESS, LIGHT, KEY, WEAPON, ARMOUR, POTION, SCROLL
+    USELESS, LIGHT, KEY, WEAPON, ARMOUR, POTION, SCROLL, IMMOVABLE
 }

@@ -17,19 +17,21 @@ public class CommandProcess {
                 parameter = input[1];
             }
         }
-        action(player, command, parameter);
+        action(player, input);
     }
 
-    public void action(Player player, String command, String parameter) {
+    public void action(Player player, String... command) {
 
-        switch (command) {
-            case "go" -> player.go(parameter);
+        switch (command[0]) {
+            case "go" -> player.go(command[1]);
             case "look" -> player.location.look();
             case "quit" -> quit(player);
-            case "take" -> player.take(parameter);
-            case "drop" -> player.drop(parameter);
+            case "take" -> player.take(command[1]);
+            case "drop" -> player.drop(command[1]);
             case "invent" -> player.invent();
             case "help" -> help();
+            default -> eventCommand(player, command);
+
         }
     }
 
@@ -38,13 +40,6 @@ public class CommandProcess {
         player.isAlive = false;
         Out.ln("Goodbye.");
     }
-
-
-
-
-
-
-
 
     private void help() {
         Out.ln("I understand the following commands -");
@@ -59,4 +54,19 @@ public class CommandProcess {
         Out.ln("help - prints this list of commands");
     }
 
+    private void eventCommand(Player player, String[] command){
+        // go through all item events and location events
+        for (ObjectItem item: player.inventory) {
+            for(Event event: item.getEvents()) {
+                if (event.getKeywords().contains(command[0])) {
+                    event.go(player, player.location, command);
+                }
+            }
+        }
+        for (Event event: player.location.events) {
+            if(event.getKeywords().contains(command[0])){
+                event.go(player, player.location, command);
+            }
+        }
+    }
 }

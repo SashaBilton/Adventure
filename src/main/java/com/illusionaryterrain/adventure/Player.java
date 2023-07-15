@@ -12,18 +12,28 @@ public class Player {
     public void take(String parameter) {
 
         ObjectItem taken = null;
+        boolean found = false;
+        if (parameter.equals("")) {
+            location.showContents();
+        }
+
         for (ObjectItem item: location.contents) {
-            if (parameter.equals("")) {
-                location.showContents();
-            }
-            if (item.getKeywords().contains(parameter)) {
-                inventory.add(item);
-                taken = item;
-                Out.ln(parameter+" taken.");
+            if (item.getKeywords().contains(parameter) ) {
+                found = true;
+                if (item.getType() != ObjectItemType.IMMOVABLE) {
+                    inventory.add(item);
+                    taken = item;
+                    Out.ln(parameter + " taken.");
+                } else {
+                    Out.ln(parameter + " cannot be taken.");
+                }
             }
         }
         if (taken != null) {
             location.contents.remove(taken);
+        }
+        if (!found) {
+            Out.ln("There is no "+parameter+" here.");
         }
     }
 
@@ -62,6 +72,15 @@ public class Player {
                 location = exit.location;
             }
         }
+    }
+
+    public ObjectItem getItem(String name) {
+        for(ObjectItem item: inventory) {
+            if (item.getKeywords().contains(name)) {
+                return item;
+            }
+        }
+        return null;
     }
 
 }
