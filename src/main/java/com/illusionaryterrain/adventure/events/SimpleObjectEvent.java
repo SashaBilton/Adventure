@@ -1,11 +1,11 @@
-package com.illusionaryterrain.adventure;
+package com.illusionaryterrain.adventure.events;
 
-import java.util.ArrayList;
+import com.illusionaryterrain.adventure.*;
+
 import java.util.List;
 
 public class SimpleObjectEvent implements Event {
-    public ArrayList<String> keywords = new ArrayList<String>();
-    Event next;
+      Event next;
 
     public SimpleObjectEvent(Event event) {
         this.next = event;
@@ -33,7 +33,7 @@ public class SimpleObjectEvent implements Event {
 
     @Override
     public List<String> getKeywords() {
-        return keywords;
+        return null;
     }
 
     @Override

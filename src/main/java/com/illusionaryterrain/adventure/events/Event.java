@@ -1,4 +1,7 @@
-package com.illusionaryterrain.adventure;
+package com.illusionaryterrain.adventure.events;
+
+import com.illusionaryterrain.adventure.Location;
+import com.illusionaryterrain.adventure.Player;
 
 import java.util.List;
 

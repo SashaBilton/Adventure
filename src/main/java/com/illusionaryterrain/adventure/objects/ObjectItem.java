@@ -1,4 +1,6 @@
-package com.illusionaryterrain.adventure;
+package com.illusionaryterrain.adventure.objects;
+
+import com.illusionaryterrain.adventure.events.Event;
 
 import java.util.ArrayList;
 import java.util.List;

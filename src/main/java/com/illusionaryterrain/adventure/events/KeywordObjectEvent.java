@@ -1,13 +1,15 @@
-package com.illusionaryterrain.adventure;
+package com.illusionaryterrain.adventure.events;
+
+import com.illusionaryterrain.adventure.*;
+import com.illusionaryterrain.adventure.objects.ObjectItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class KeywordObjectEvent extends SimpleObjectEvent {
 
 
-
+    ArrayList<String> keywords = new ArrayList<>();
     public KeywordObjectEvent(Event event, String... keywords){
         super(event);
         this.keywords.addAll(Arrays.asList(keywords));

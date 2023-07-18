@@ -1,5 +1,7 @@
 package com.illusionaryterrain.adventure;
 
+import com.illusionaryterrain.adventure.objects.ObjectItemType;
+import com.illusionaryterrain.adventure.objects.SimpleObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

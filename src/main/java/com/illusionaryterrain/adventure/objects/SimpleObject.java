@@ -1,9 +1,13 @@
-package com.illusionaryterrain.adventure;
+package com.illusionaryterrain.adventure.objects;
+
+import com.illusionaryterrain.adventure.events.Event;
+import com.illusionaryterrain.adventure.objects.ObjectItem;
+import com.illusionaryterrain.adventure.objects.ObjectItemType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleObject implements ObjectItem{
+public class SimpleObject implements ObjectItem {
 
     public String description ="";
     public ObjectItemType type = ObjectItemType.USELESS;

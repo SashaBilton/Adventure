@@ -1,5 +1,10 @@
 package com.illusionaryterrain.adventure;
 
+import com.illusionaryterrain.adventure.events.KeywordObjectEvent;
+import com.illusionaryterrain.adventure.events.SimpleObjectEvent;
+import com.illusionaryterrain.adventure.objects.ObjectItemType;
+import com.illusionaryterrain.adventure.objects.SimpleObject;
+
 public class Main {
     public static void main(String[] args) {
 
