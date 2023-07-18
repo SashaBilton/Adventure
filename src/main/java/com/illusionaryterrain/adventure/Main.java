@@ -11,17 +11,17 @@ public class Main {
         System.out.println("Hello and welcome to Adventure!");
 
         Location start = GenerateMap();
-        Player player = new Player();
-        player.location = start;
+        Game game = new Game();
+        game.player.location = start;
 
-        while (player.isAlive) {
-            if (player.moved) {
-                player.location.enter();
-                player.moved = false;
+        while (game.player.isAlive) {
+            if (game.player.moved) {
+                game.player.location.enter();
+                game.player.moved = false;
 
             }
             CommandProcess cp = new CommandProcess();
-            cp.input(player);
+            cp.input(game);
         }
     }
 

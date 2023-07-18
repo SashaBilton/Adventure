@@ -37,7 +37,7 @@ public class SimpleObjectEvent implements Event {
     }
 
     @Override
-    public void go(Player player, Location location, String... targets) {
+    public void go(Game game, String... targets) {
         for(String target:targets) {
             Out.ln(target);
         }

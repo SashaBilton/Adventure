@@ -15,12 +15,12 @@ public class KeywordObjectEvent extends SimpleObjectEvent {
         this.keywords.addAll(Arrays.asList(keywords));
     }
     @Override
-    public void go(Player player, Location location, String[] target) {
+    public void go(Game game, String[] target) {
 
         if (keywords.contains(target[0])) {
-            ObjectItem hasItem = player.getItem(target[1]);
+            ObjectItem hasItem = game.player.getItem(target[1]);
             if (hasItem != null) {
-                next.go(player, location, target);
+                next.go(game, target);
             }
         }
     }

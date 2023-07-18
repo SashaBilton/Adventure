@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class CommandProcess {
 
 
-    public void input(Player player) {
+    public void input(Game game) {
         Out.sl(">");
         String line = new Scanner(System.in).nextLine();
         String[] input = line.split(" ");
@@ -20,20 +20,20 @@ public class CommandProcess {
                 parameter = input[1];
             }
         }
-        action(player, input);
+        action(game, input);
     }
 
-    public void action(Player player, String... command) {
+    public void action(Game game, String... command) {
 
         switch (command[0]) {
-            case "go" -> player.go(command[1]);
-            case "look" -> player.location.look();
-            case "quit" -> quit(player);
-            case "take" -> player.take(command[1]);
-            case "drop" -> player.drop(command[1]);
-            case "invent" -> player.invent();
+            case "go" -> game.player.go(command[1]);
+            case "look" -> game.player.location.look();
+            case "quit" -> quit(game.player);
+            case "take" -> game.player.take(command[1]);
+            case "drop" -> game.player.drop(command[1]);
+            case "invent" -> game.player.invent();
             case "help" -> help();
-            default -> eventCommand(player, command);
+            default -> eventCommand(game, command);
 
         }
     }
@@ -57,18 +57,18 @@ public class CommandProcess {
         Out.ln("help - prints this list of commands");
     }
 
-    private void eventCommand(Player player, String[] command){
+    private void eventCommand(Game game, String[] command){
         // go through all item events and location events
-        for (ObjectItem item: player.inventory) {
+        for (ObjectItem item: game.player.inventory) {
             for(Event event: item.getEvents()) {
                 if (event.getKeywords().contains(command[0])) {
-                    event.go(player, player.location, command);
+                    event.go(game, command);
                 }
             }
         }
-        for (Event event: player.location.events) {
+        for (Event event: game.player.location.events) {
             if(event.getKeywords().contains(command[0])){
-                event.go(player, player.location, command);
+                event.go(game, command);
             }
         }
     }

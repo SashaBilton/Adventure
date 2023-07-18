@@ -6,7 +6,7 @@ import com.illusionaryterrain.adventure.objects.ObjectItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Location {
+public class Location extends HasState{
     public String shortDescription;
     public String longDescription;
     public boolean visited = false;
