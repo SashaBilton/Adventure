@@ -72,9 +72,15 @@ public class Player {
                 Out.ln(exit.description);
             }
             if (exit.keywords.contains(parameter)) {
-                location.visited = true;
-                moved = true;
-                location = exit.location;
+                Integer closed = exit.state.get("CLOSED");
+
+                if (closed != null && closed > 0 ) {
+                    Out.ln("I can't currently go that way.");
+                } else {
+                    location.visited = true;
+                    moved = true;
+                    location = exit.location;
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ package com.illusionaryterrain.adventure.objects;
 import com.illusionaryterrain.adventure.events.Event;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public interface ObjectItem {
@@ -14,6 +15,7 @@ public interface ObjectItem {
     public void setKeywords(ArrayList<String> keywords);
     public List<Event> getEvents();
     public void setEvents(ArrayList<Event> events);
+    public Hashtable<String, Integer> getState();
 
 
 

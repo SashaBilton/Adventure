@@ -1,13 +1,15 @@
 package com.illusionaryterrain.adventure.objects;
 
+import com.illusionaryterrain.adventure.HasState;
 import com.illusionaryterrain.adventure.events.Event;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 import com.illusionaryterrain.adventure.objects.ObjectItemType;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
-public class SimpleObject implements ObjectItem {
+public class SimpleObject extends HasState implements ObjectItem {
 
     public String description ="";
     public ObjectItemType type = ObjectItemType.USELESS;
@@ -63,4 +65,8 @@ public class SimpleObject implements ObjectItem {
     @Override
     public void setEvents(ArrayList<Event> events) { this.events = events;}
 
+    @Override
+    public Hashtable<String, Integer> getState() {
+        return state;
+    }
 }
