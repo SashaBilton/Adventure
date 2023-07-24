@@ -4,29 +4,26 @@ import com.illusionaryterrain.adventure.Game;
 import com.illusionaryterrain.adventure.StateType;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 
-public class StateChangeEvent extends SimpleObjectEvent{
+public class ItemStateChangeEvent extends SimpleObjectEvent{
 
-    private StateType type;
+
     private String state;
     private Integer value;
-    public StateChangeEvent(Event event,StateType type,String state, Integer value) {
+
+    private ObjectItem item;
+
+    public ItemStateChangeEvent(Event event, ObjectItem item, String state, Integer value) {
         super(event);
         this.state = state;
         this.value = value;
-        this.type = type;
+        this.item = item;
     }
 
     @Override
     public void go(Game game, String... targets) {
-        switch (type) {
-            case PLAYER -> game.player.state.put(state, value);
-            case LOCATION -> game.player.location.state.put(state, value);
-            case GLOBAL -> game.state.put(state, value);
-        }
-
+        item.getState().put(state,value);
         goNext(game, targets);
-
-
     }
+
 
 }

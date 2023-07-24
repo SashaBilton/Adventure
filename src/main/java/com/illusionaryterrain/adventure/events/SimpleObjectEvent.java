@@ -4,8 +4,11 @@ import com.illusionaryterrain.adventure.*;
 
 import java.util.List;
 
-public class SimpleObjectEvent implements Event {
+public abstract class SimpleObjectEvent implements Event {
       Event next;
+      EventType type;
+
+      String description;
 
     public SimpleObjectEvent(Event event) {
         this.next = event;
@@ -13,13 +16,12 @@ public class SimpleObjectEvent implements Event {
 
     @Override
     public EventType getEventType() {
-        return EventType.KEYWORDOBJECT;
+        return type;
     }
 
     @Override
-    public void setEventType(EventType type) {
+    public void setEventType(EventType type) { this.type = type;}
 
-    }
 
     @Override
     public Event getNextEvent() {
@@ -38,8 +40,12 @@ public class SimpleObjectEvent implements Event {
 
     @Override
     public void go(Game game, String... targets) {
-        for(String target:targets) {
-            Out.ln(target);
+        goNext(game, targets);
+    }
+
+    public void goNext(Game game, String... targets){
+        if(next!=null) {
+            next.go(game, targets);
         }
     }
 }

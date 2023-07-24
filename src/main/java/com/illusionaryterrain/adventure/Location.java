@@ -24,16 +24,22 @@ public class Location extends HasState{
         this.longDescription = longDescription;
     }
 
-    public void enter(){
+    public void enter(Game game){
+        if (itIsDark(game.player)) {
+            return;
+        }
         if (visited) {
             Out.ln(shortDescription);
             showExits();
             showContents();
         } else {
-            look();
+            look(game);
         }
     }
-    public void look() {
+    public void look(Game game) {
+        if (itIsDark(game.player)) {
+            return;
+        }
         Out.sl("You are in ");
         Out.ln(longDescription);
         showExits();
@@ -55,4 +61,14 @@ public class Location extends HasState{
         }
     }
 
+    public boolean itIsDark(Player player) {
+        if ((state.get("LIT") != null && state.get("LIT") == 0 ) &&
+                (player.state.get("LIGHT") !=null && player.state.get("LIGHT")==0)) {
+            Out.ln("It's too dark too see in here.");
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

@@ -14,6 +14,9 @@ public class Player {
     public ArrayList<ObjectItem> inventory = new ArrayList<>();
     public Hashtable<String, Integer> state = new Hashtable<>();
 
+    public Player() {
+    }
+
     public void take(String parameter) {
 
         ObjectItem taken = null;

@@ -2,8 +2,7 @@ package com.illusionaryterrain.adventure.objects;
 
 import com.illusionaryterrain.adventure.HasState;
 import com.illusionaryterrain.adventure.events.Event;
-import com.illusionaryterrain.adventure.objects.ObjectItem;
-import com.illusionaryterrain.adventure.objects.ObjectItemType;
+
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -11,11 +10,11 @@ import java.util.List;
 
 public class SimpleObject extends HasState implements ObjectItem {
 
-    public String description ="";
-    public ObjectItemType type = ObjectItemType.USELESS;
+    public String description;
+    public ObjectItemType type;
 
-    public ArrayList<String> keywords = new ArrayList<String>();
-    public ArrayList<Event> events = new ArrayList<Event>();
+    public ArrayList<String> keywords = new ArrayList<>();
+    public ArrayList<Event> events = new ArrayList<>();
 
     public SimpleObject( ObjectItemType type, String... args) {
         this.description = args[0];

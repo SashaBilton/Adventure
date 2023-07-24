@@ -12,5 +12,6 @@ public interface Event {
     public Event getNextEvent();
     public void setNextEvent(Event event);
     public void go(Game game, String... target);
+    public void goNext(Game game, String... target);
     public List<String> getKeywords();
 }

@@ -5,9 +5,9 @@ import com.illusionaryterrain.adventure.objects.ObjectItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class KeywordObjectEvent extends SimpleObjectEvent {
-
 
     ArrayList<String> keywords = new ArrayList<>();
     public KeywordObjectEvent(Event event, String... keywords){
@@ -15,14 +15,19 @@ public class KeywordObjectEvent extends SimpleObjectEvent {
         this.keywords.addAll(Arrays.asList(keywords));
     }
     @Override
-    public void go(Game game, String[] target) {
+    public void go(Game game, String... target) {
 
         if (keywords.contains(target[0])) {
             ObjectItem hasItem = game.player.getItem(target[1]);
             if (hasItem != null) {
-                next.go(game, target);
+                goNext(game, target);
             }
         }
+
+
+    }
+    public List<String> getKeywords() {
+        return keywords;
     }
 
 
