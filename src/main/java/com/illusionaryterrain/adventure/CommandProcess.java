@@ -12,14 +12,6 @@ public class CommandProcess {
         Out.sl(">");
         String line = new Scanner(System.in).nextLine();
         String[] input = line.split(" ");
-        String command = "wait";
-        String parameter = "";
-        if (input.length > 0) {
-            command = input[0];
-            if (input.length> 1) {
-                parameter = input[1];
-            }
-        }
         action(game, input);
     }
 
