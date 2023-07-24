@@ -28,16 +28,21 @@ public class SimpleGameData {
         Exit irondoor2 = new Exit(hall, "An iron shod door in the west.", "door", "west");
         cal.exits.add(irondoor2);
 
+        SimpleObject flint = new SimpleObject(ObjectItemType.LIGHT, "a flint & steel set", "flint");
         SimpleObject candle = new SimpleObject( ObjectItemType.LIGHT, "An unlit candle.","candle");
         candle.state.put("LIT", 0);
         ItemDescriptionChangeEvent idce = new ItemDescriptionChangeEvent(null, candle, "A lit, flicking candle.");
         OutputEvent oe = new OutputEvent(idce,"You light the candle.");
         ItemStateChangeEvent isce = new ItemStateChangeEvent(oe, candle, "LIT", 1);
         StateChangeEvent sce = new StateChangeEvent(isce, StateType.PLAYER, "LIGHT", 1);
-        KeywordObjectEvent ke = new KeywordObjectEvent(sce, "light","candle");
-        candle.events.add(ke);
+        HasItemEvent hie = new HasItemEvent(sce, flint, "I have nothing to light it with.");
+        KeywordObjectEvent ke = new KeywordObjectEvent(hie, "light","candle");
 
+        candle.events.add(ke);
         hall.contents.add(candle);
+
+
+        hall.contents.add(flint);
 
         game.player.state.put("LIGHT", 0);
 
