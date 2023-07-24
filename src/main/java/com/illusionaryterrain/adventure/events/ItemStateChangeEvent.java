@@ -1,7 +1,6 @@
 package com.illusionaryterrain.adventure.events;
 
 import com.illusionaryterrain.adventure.Game;
-import com.illusionaryterrain.adventure.StateType;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 
 public class ItemStateChangeEvent extends SimpleObjectEvent{

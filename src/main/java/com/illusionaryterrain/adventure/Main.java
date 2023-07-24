@@ -1,9 +1,5 @@
 package com.illusionaryterrain.adventure;
 
-import com.illusionaryterrain.adventure.events.KeywordObjectEvent;
-import com.illusionaryterrain.adventure.events.SimpleObjectEvent;
-import com.illusionaryterrain.adventure.objects.ObjectItemType;
-import com.illusionaryterrain.adventure.objects.SimpleObject;
 import com.illusionaryterrain.adventure.simplegame.SimpleGameData;
 
 public class Main {
@@ -13,8 +9,7 @@ public class Main {
 
 
         Game game = new Game();
-        Location start = SimpleGameData.GenerateMap(game);
-        game.player.location = start;
+        game.player.location = SimpleGameData.GenerateMap(game);
 
         while (game.player.isAlive) {
             if (game.player.moved) {

@@ -8,8 +8,6 @@ public abstract class SimpleObjectEvent implements Event {
       Event next;
       EventType type;
 
-      String description;
-
     public SimpleObjectEvent(Event event) {
         this.next = event;
     }

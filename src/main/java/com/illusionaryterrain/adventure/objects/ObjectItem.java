@@ -7,15 +7,15 @@ import java.util.Hashtable;
 import java.util.List;
 
 public interface ObjectItem {
-    public Enum<ObjectItemType> getType();
-    public void setType(Enum<ObjectItemType> type);
-    public String getDescription();
-    public void setDescription(String description);
-    public List<String> getKeywords();
-    public void setKeywords(ArrayList<String> keywords);
-    public List<Event> getEvents();
-    public void setEvents(ArrayList<Event> events);
-    public Hashtable<String, Integer> getState();
+    Enum<ObjectItemType> getType();
+    void setType(Enum<ObjectItemType> type);
+    String getDescription();
+    void setDescription(String description);
+    List<String> getKeywords();
+    void setKeywords(ArrayList<String> keywords);
+    List<Event> getEvents();
+    void setEvents(ArrayList<Event> events);
+    Hashtable<String, Integer> getState();
 
 
 

@@ -5,7 +5,7 @@ import com.illusionaryterrain.adventure.Out;
 
 public class OutputEvent extends SimpleObjectEvent{
 
-    String output = "";
+    String output;
     public OutputEvent(Event event, String output) {
         super(event);
         this.output = output;

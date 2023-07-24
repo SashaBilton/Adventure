@@ -10,7 +10,7 @@ public class Location extends HasState{
     public String shortDescription;
     public String longDescription;
     public boolean visited = false;
-    public List<Exit> exits = new ArrayList<Exit>();
+    public List<Exit> exits = new ArrayList<>();
     public List<ObjectItem> contents = new ArrayList<>();
 
     public List<Event> events = new ArrayList<>();

@@ -1,17 +1,15 @@
 package com.illusionaryterrain.adventure.events;
 
 import com.illusionaryterrain.adventure.Game;
-import com.illusionaryterrain.adventure.Location;
-import com.illusionaryterrain.adventure.Player;
 
 import java.util.List;
 
 public interface Event {
-    public EventType getEventType();
-    public void setEventType(EventType type);
-    public Event getNextEvent();
-    public void setNextEvent(Event event);
-    public void go(Game game, String... target);
-    public void goNext(Game game, String... target);
-    public List<String> getKeywords();
+    EventType getEventType();
+    void setEventType(EventType type);
+    Event getNextEvent();
+    void setNextEvent(Event event);
+    void go(Game game, String... target);
+    void goNext(Game game, String... target);
+    List<String> getKeywords();
 }

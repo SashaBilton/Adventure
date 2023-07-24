@@ -6,7 +6,7 @@ import java.util.List;
 public class Exit extends HasState{
     public String description;
     public Location location;
-    List<String> keywords = new ArrayList<String>();
+    List<String> keywords = new ArrayList<>();
 
     public Exit(Location to, String... args) {
         this.location = to;
