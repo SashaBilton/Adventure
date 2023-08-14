@@ -3,6 +3,9 @@ package com.illusionaryterrain.adventure.events;
 import com.illusionaryterrain.adventure.Game;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 
+/**
+ * Change the description of an item
+ */
 public class ItemDescriptionChangeEvent extends SimpleObjectEvent {
 
     String newDesc;

@@ -36,7 +36,7 @@ public class SimpleGameData {
         ItemStateChangeEvent isce = new ItemStateChangeEvent(oe, candle, "LIT", 1);
         StateChangeEvent sce = new StateChangeEvent(isce, StateType.PLAYER, "LIGHT", 1);
         HasItemEvent hie = new HasItemEvent(sce, flint, "I have nothing to light it with.");
-        KeywordObjectEvent ke = new KeywordObjectEvent(hie, "light","candle");
+        KeywordItemEvent ke = new KeywordItemEvent(hie, "light","candle");
 
         candle.events.add(ke);
         hall.contents.add(candle);

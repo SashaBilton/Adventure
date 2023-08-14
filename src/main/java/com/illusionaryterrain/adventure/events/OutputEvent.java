@@ -3,6 +3,9 @@ package com.illusionaryterrain.adventure.events;
 import com.illusionaryterrain.adventure.Game;
 import com.illusionaryterrain.adventure.Out;
 
+/**
+ * Output a string event
+ */
 public class OutputEvent extends SimpleObjectEvent{
 
     String output;

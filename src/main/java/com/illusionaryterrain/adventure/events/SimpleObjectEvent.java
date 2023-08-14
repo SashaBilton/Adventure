@@ -4,6 +4,9 @@ import com.illusionaryterrain.adventure.*;
 
 import java.util.List;
 
+/**
+ * Base abstract class for events
+ */
 public abstract class SimpleObjectEvent implements Event {
       Event next;
       EventType type;

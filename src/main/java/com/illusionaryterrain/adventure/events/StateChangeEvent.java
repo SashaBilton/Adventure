@@ -3,11 +3,15 @@ package com.illusionaryterrain.adventure.events;
 import com.illusionaryterrain.adventure.Game;
 import com.illusionaryterrain.adventure.StateType;
 
+/**
+ * StateChangeEvents add or set a state value in player, location, or the global set of states.
+ */
 public class StateChangeEvent extends SimpleObjectEvent{
 
     private StateType type;
     private String state;
     private Integer value;
+
     public StateChangeEvent(Event event,StateType type,String state, Integer value) {
         super(event);
         this.state = state;

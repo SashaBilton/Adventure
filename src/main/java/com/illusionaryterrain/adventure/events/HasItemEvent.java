@@ -4,10 +4,14 @@ import com.illusionaryterrain.adventure.Game;
 import com.illusionaryterrain.adventure.Out;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 
+/**
+ * Call the next Event if the player has a item/object
+ */
 public class HasItemEvent extends SimpleObjectEvent {
 
     ObjectItem item;
     String failMsg;
+
 
     public HasItemEvent(Event event, ObjectItem item, String fail) {
         super(event);
