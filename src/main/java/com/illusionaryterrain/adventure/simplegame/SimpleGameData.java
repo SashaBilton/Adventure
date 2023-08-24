@@ -7,6 +7,8 @@ import com.illusionaryterrain.adventure.StateType;
 import com.illusionaryterrain.adventure.events.*;
 import com.illusionaryterrain.adventure.objects.ObjectItemType;
 import com.illusionaryterrain.adventure.objects.SimpleObject;
+import com.illusionaryterrain.adventure.rpg.CharacterStateFactory;
+import com.illusionaryterrain.adventure.rpg.InfiniteDiceBag;
 
 public class SimpleGameData {
 
@@ -45,6 +47,12 @@ public class SimpleGameData {
         hall.contents.add(flint);
 
         game.player.state.put("LIGHT", 0);
+
+        InfiniteDiceBag bag = new InfiniteDiceBag();
+
+        game.player.state.putAll(CharacterStateFactory.createNewCharacter(bag));
+
+        CharacterStateFactory.writeStats(game.player.state);
 
         return hall;
 
