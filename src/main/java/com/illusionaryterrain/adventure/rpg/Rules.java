@@ -2,7 +2,7 @@ package com.illusionaryterrain.adventure.rpg;
 
 public class Rules {
 
-    public static CombatResult combat(RPGSheet a, RPGSheet b, RandomDiceGenerator bag) {
+    public static CombatResult combat(RPGSheet a, RPGSheet b, DiceGenerator bag) {
         CombatResult r = new CombatResult();
         r.aRoll = bag.getNextTotal(2);
         r.aTotal = r.aRoll + a.stats.get("skill");

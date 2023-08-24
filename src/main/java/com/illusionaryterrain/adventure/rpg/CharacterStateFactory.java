@@ -9,7 +9,7 @@ import java.util.Hashtable;
  */
 public class CharacterStateFactory {
 
-    public static Hashtable<String, Integer> createNewCharacter(RandomDiceGenerator rnd) {
+    public static Hashtable<String, Integer> createNewCharacter(DiceGenerator rnd) {
         Hashtable<String, Integer> stats = new Hashtable<>();
 
         stats.put("skill", rnd.getNext() + 6);

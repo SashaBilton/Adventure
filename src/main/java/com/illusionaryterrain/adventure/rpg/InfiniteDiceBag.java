@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * A standard always random dice roll generator
  */
-public class InfiniteDiceBag implements RandomDiceGenerator{
+public class InfiniteDiceBag implements DiceGenerator{
 
     Random rnd = new Random();
     @Override

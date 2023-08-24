@@ -1,6 +1,6 @@
 package com.illusionaryterrain.adventure.rpg;
 
-public class TestableDiceBag implements com.illusionaryterrain.adventure.rpg.RandomDiceGenerator{
+public class TestableDiceBag implements com.illusionaryterrain.adventure.rpg.DiceGenerator{
 
     public Integer[] diceRolls;
     public TestableDiceBag(Integer[] diceRolls) {
