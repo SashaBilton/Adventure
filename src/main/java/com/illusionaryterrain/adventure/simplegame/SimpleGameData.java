@@ -50,9 +50,9 @@ public class SimpleGameData {
 
         InfiniteDiceBag bag = new InfiniteDiceBag();
 
-        game.player.state.putAll(CharacterStateFactory.createNewCharacter(bag));
+        game.player.rpg = CharacterStateFactory.createNewCharacter(bag);
 
-        CharacterStateFactory.writeStats(game.player.state);
+        CharacterStateFactory.writeStats(game.player.rpg);
 
         return hall;
 

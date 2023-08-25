@@ -2,6 +2,7 @@ package com.illusionaryterrain.adventure;
 
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 import com.illusionaryterrain.adventure.objects.ObjectItemType;
+import com.illusionaryterrain.adventure.rpg.RPGSheet;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -14,6 +15,7 @@ public class Player {
     public ArrayList<ObjectItem> inventory = new ArrayList<>();
     public Hashtable<String, Integer> state = new Hashtable<>();
 
+    public RPGSheet rpg;
     public Player() {
     }
 

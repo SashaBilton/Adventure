@@ -9,7 +9,9 @@ import java.util.Hashtable;
  */
 public class CharacterStateFactory {
 
-    public static Hashtable<String, Integer> createNewCharacter(DiceGenerator rnd) {
+    public static RPGSheet createNewCharacter(DiceGenerator rnd) {
+
+
         Hashtable<String, Integer> stats = new Hashtable<>();
 
         stats.put("skill", rnd.getNext() + 6);
@@ -17,14 +19,14 @@ public class CharacterStateFactory {
         stats.put("luck", rnd.getNext() + 6);
         stats.put("mana", rnd.getNextTotal(2)+6);
 
-        return stats;
+        return new RPGSheet("", stats);
     }
 
-    public static void writeStats(Hashtable<String, Integer> state) {
-        Out.ln("Skill.... "+state.get("skill"));
-        Out.ln("Stamina.. "+state.get("stamina"));
-        Out.ln("Luck..... "+state.get("luck"));
-        Out.ln("Mana..... "+state.get("mana"));
+    public static void writeStats(RPGSheet rpg) {
+        Out.ln("Skill.... "+ rpg.stats.get("skill"));
+        Out.ln("Stamina.. "+rpg.stats.get("stamina"));
+        Out.ln("Luck..... "+rpg.stats.get("luck"));
+        Out.ln("Mana..... "+rpg.stats.get("mana"));
 
     }
 

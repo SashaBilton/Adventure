@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class RulesTest {
+class RulesTest {
     @Test
     void combatBetweenTwoGiantSpiders() {
         Integer[] dice = {1,1,6,6};
