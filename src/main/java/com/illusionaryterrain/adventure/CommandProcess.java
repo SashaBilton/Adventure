@@ -13,6 +13,7 @@ public class CommandProcess {
         String line = new Scanner(System.in).nextLine();
         String[] input = line.split(" ");
         action(game, input);
+        game.timedEvents.tick++;
     }
 
     public void action(Game game, String... command) {
