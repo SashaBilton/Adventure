@@ -8,5 +8,8 @@ public interface TimedEvent {
 
     void go(Game game);
 
+    void goNext(Game game);
+
+
 }
 

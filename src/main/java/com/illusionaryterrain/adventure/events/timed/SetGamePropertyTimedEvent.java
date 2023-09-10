@@ -2,7 +2,7 @@ package com.illusionaryterrain.adventure.events.timed;
 
 import com.illusionaryterrain.adventure.Game;
 
-public class SetGamePropertyTimedEvent implements TimedEvent{
+public class SetGamePropertyTimedEvent extends AbstractTimedEvent{
 
     int tick;
     String key;
@@ -15,13 +15,9 @@ public class SetGamePropertyTimedEvent implements TimedEvent{
     }
 
     @Override
-    public int getTickToFireOn() {
-        return tick;
-    }
-
-    @Override
     public void go(Game game) {
         game.state.put(key, value);
+        goNext(game);
 
     }
 }
