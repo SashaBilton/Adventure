@@ -9,20 +9,11 @@ import java.util.List;
  */
 public abstract class SimpleObjectEvent implements Event {
       Event next;
-      EventType type;
+
 
     public SimpleObjectEvent(Event event) {
         this.next = event;
     }
-
-    @Override
-    public EventType getEventType() {
-        return type;
-    }
-
-    @Override
-    public void setEventType(EventType type) { this.type = type;}
-
 
     @Override
     public Event getNextEvent() {

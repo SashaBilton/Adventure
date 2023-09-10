@@ -8,8 +8,7 @@ import java.util.List;
  * An event is linked list of classes that allow the system to respond to input by the player or system.
  */
 public interface Event {
-    EventType getEventType();
-    void setEventType(EventType type);
+
     Event getNextEvent();
     void setNextEvent(Event event);
     void go(Game game, String... target);
