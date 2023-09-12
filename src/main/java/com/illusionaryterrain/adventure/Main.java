@@ -1,15 +1,15 @@
 package com.illusionaryterrain.adventure;
 
 import com.illusionaryterrain.adventure.simplegame.SimpleGameData;
+import com.illusionaryterrain.adventure.tunnelsofterror.TunnelsOfTerrorGameData;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello and welcome to Adventure!");
-
-
         Game game = new Game();
-        game.player.location = SimpleGameData.GenerateMap(game);
+        game.player.location = TunnelsOfTerrorGameData.Generate(game);
+
+        Out.ln(game.introduction);
 
         while (game.player.isAlive) {
             if (game.player.moved) {

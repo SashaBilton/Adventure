@@ -17,4 +17,13 @@ public class Exit extends HasState{
             next++;
         }
     }
+
+    public Exit(String... args) {
+        this.description = args[0];
+        int next = 1;
+        while (next < args.length) {
+            keywords.add(args[next]);
+            next++;
+        }
+    }
 }

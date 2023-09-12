@@ -7,5 +7,7 @@ public class Game  extends HasState{
     public Player player = new Player();
     public TimedEvents timedEvents = new TimedEvents();
 
+    public String introduction;
+
 
 }
