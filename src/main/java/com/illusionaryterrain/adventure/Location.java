@@ -4,6 +4,7 @@ import com.illusionaryterrain.adventure.events.Event;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 public class Location extends HasState{
@@ -14,6 +15,8 @@ public class Location extends HasState{
     public List<ObjectItem> contents = new ArrayList<>();
 
     public List<Event> events = new ArrayList<>();
+
+    public Hashtable<String, Creature> inhabitants = new Hashtable<>();
 
 
     public Location(String shortDescription) {
@@ -32,6 +35,7 @@ public class Location extends HasState{
             Out.ln(shortDescription);
             showExits();
             showContents();
+            showInhabitants();
         } else {
             look(game);
         }
@@ -44,6 +48,7 @@ public class Location extends HasState{
         Out.ln(longDescription);
         showExits();
         showContents();
+        showInhabitants();
     }
     public void showExits() {
         Out.ln("Obvious exits are -");
@@ -57,6 +62,15 @@ public class Location extends HasState{
             Out.ln("You also see here -");
             for (ObjectItem item: contents) {
                 Out.ln(item.getDescription());
+            }
+        }
+    }
+
+    public void showInhabitants() {
+        if (inhabitants.size() > 0) {
+            Out.ln("");
+            for (Creature creature: inhabitants.values()) {
+                Out.ln(creature.getDescription()+" is here.");
             }
         }
     }

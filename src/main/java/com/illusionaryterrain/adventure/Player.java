@@ -2,7 +2,9 @@ package com.illusionaryterrain.adventure;
 
 import com.illusionaryterrain.adventure.objects.ObjectItem;
 import com.illusionaryterrain.adventure.objects.ObjectItemType;
+import com.illusionaryterrain.adventure.rpg.CombatResult;
 import com.illusionaryterrain.adventure.rpg.RPGSheet;
+import com.illusionaryterrain.adventure.rpg.Rules;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -97,6 +99,24 @@ public class Player {
             }
         }
         return null;
+    }
+
+    public void fight(String foe, Game game) {
+        Creature creature = game.player.location.inhabitants.get(foe);
+
+        if (creature != null) {
+            CombatResult cr = Rules.combat(game.player.rpg, (RPGSheet)creature, game.diceBag);
+            Out.ln("You rolled a "+cr.aRoll+" and the "+creature.getName()+" rolled a "+ cr.bRoll);
+            Out.ln("Your total is "+cr.aTotal+" while it's is "+cr.bTotal);
+            if (cr.aDamage > 0) {
+                Out.ln("You take "+cr.aDamage+" damage!");
+            } else if(cr.bDamage>0) {
+                Out.ln("It takes "+cr.bDamage+" damage");
+            } else {
+                Out.ln("You exchange blows but neither wound each other.");
+            }
+
+        }
     }
 
 }

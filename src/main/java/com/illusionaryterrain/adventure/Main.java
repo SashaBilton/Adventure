@@ -1,5 +1,6 @@
 package com.illusionaryterrain.adventure;
 
+import com.illusionaryterrain.adventure.rpg.CharacterStateFactory;
 import com.illusionaryterrain.adventure.simplegame.SimpleGameData;
 import com.illusionaryterrain.adventure.tunnelsofterror.TunnelsOfTerrorGameData;
 
@@ -10,6 +11,10 @@ public class Main {
         game.player.location = TunnelsOfTerrorGameData.Generate(game);
 
         Out.ln(game.introduction);
+        Out.ln("\nYour stats are:");
+
+        CharacterStateFactory.writeStats(game.player.rpg);
+        CommandProcess cp = new CommandProcess();
 
         while (game.player.isAlive) {
             if (game.player.moved) {
@@ -17,7 +22,7 @@ public class Main {
                 game.player.moved = false;
 
             }
-            CommandProcess cp = new CommandProcess();
+
             cp.input(game);
         }
     }

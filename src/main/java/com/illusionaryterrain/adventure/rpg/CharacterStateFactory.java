@@ -19,7 +19,7 @@ public class CharacterStateFactory {
         stats.put("luck", rnd.getNext() + 6);
         stats.put("mana", rnd.getNextTotal(2)+6);
 
-        return new RPGSheet("", stats);
+        return new RPGSheet("player","a ragged person", stats);
     }
 
     public static void writeStats(RPGSheet rpg) {

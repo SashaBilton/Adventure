@@ -26,6 +26,7 @@ public class CommandProcess {
             case "drop", "leave" -> game.player.drop(command[1]);
             case "invent", "inventory" -> game.player.invent();
             case "help" -> help();
+            case "attack" -> game.player.fight(command[1], game);
             case "--dump" ->dump(game);
             default -> eventCommand(game, command);
 

@@ -30,7 +30,7 @@ public class HasItemEvent extends SimpleObjectEvent {
             goNext(game, targets);
         }
         else {
-            if (!failMsg.equals("")) {
+            if (failMsg!= null && !failMsg.equals("")) {
                 Out.ln(failMsg);
             }
         }
