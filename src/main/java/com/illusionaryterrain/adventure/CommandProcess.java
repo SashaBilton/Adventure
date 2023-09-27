@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class CommandProcess {
 
 
-    public void input(Game game) {
+    public static void input(Game game) {
         Out.sl(">");
         String line = new Scanner(System.in).nextLine();
         String[] input = line.split(" ");
@@ -16,7 +16,7 @@ public class CommandProcess {
         game.timedEvents.tick++;
     }
 
-    public void action(Game game, String... command) {
+    public static void action(Game game, String... command) {
 
         switch (command[0]) {
             case "go" -> game.player.go(command[1]);
@@ -34,12 +34,12 @@ public class CommandProcess {
     }
 
 
-    private void quit(Player player) {
+    private static void quit(Player player) {
         player.isAlive = false;
         Out.ln("Goodbye.");
     }
 
-    private void help() {
+    private static void help() {
         Out.ln("I understand the following commands -");
         Out.ln("look - describe where I am.");
         Out.ln("go - list the exits available here.");
@@ -52,7 +52,7 @@ public class CommandProcess {
         Out.ln("help - prints this list of commands");
     }
 
-    private void eventCommand(Game game, String[] command){
+    private static void eventCommand(Game game, String[] command){
         // go through all item events and location events
         for (ObjectItem item: game.player.inventory) {
             for(Event event: item.getEvents()) {
@@ -68,7 +68,7 @@ public class CommandProcess {
         }
     }
 
-    public void dump(Game game) {
+    public static void dump(Game game) {
 
         Out.ln("Game - ");
         game.state.forEach((name, value) -> Out.ln(name+" = "+value));

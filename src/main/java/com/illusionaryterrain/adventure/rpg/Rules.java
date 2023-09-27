@@ -2,12 +2,20 @@ package com.illusionaryterrain.adventure.rpg;
 
 public class Rules {
 
+    public static final String SKILL = "skill";
+    public static final String STAMINA = "stamina";
+    public static final String MANA = "mana";
+
+    public static final String LUCK = "luck";
+
+
+
     public static CombatResult combat(RPGSheet a, RPGSheet b, DiceGenerator bag) {
         CombatResult r = new CombatResult();
         r.aRoll = bag.getNextTotal(2);
-        r.aTotal = r.aRoll + a.stats.get("skill");
+        r.aTotal = r.aRoll + a.stats.get(SKILL);
         r.bRoll = bag.getNextTotal(2);
-        r.bTotal = r.bRoll + b.stats.get("skill");
+        r.bTotal = r.bRoll + b.stats.get(SKILL);
 
         if (r.aTotal > r.bTotal) {
             r.bDamage = 2;
@@ -20,8 +28,8 @@ public class Rules {
             r.aDamage = 0;
         }
 
-        a.stats.put("stamina", a.stats.get("stamina")-r.aDamage);
-        b.stats.put("stamina", b.stats.get("stamina")-r.bDamage);
+        a.stats.put(STAMINA, a.stats.get(STAMINA)-r.aDamage);
+        b.stats.put(STAMINA, b.stats.get(STAMINA)-r.bDamage);
 
         return r;
     }

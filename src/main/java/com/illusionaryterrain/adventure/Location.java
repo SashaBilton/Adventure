@@ -2,6 +2,7 @@ package com.illusionaryterrain.adventure;
 
 import com.illusionaryterrain.adventure.events.Event;
 import com.illusionaryterrain.adventure.objects.ObjectItem;
+import com.illusionaryterrain.adventure.rpg.RPGSheet;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -84,5 +85,11 @@ public class Location extends HasState{
         else {
             return false;
         }
+    }
+
+    public void killCreature(RPGSheet creature) {
+        inhabitants.remove(creature.name);
+        //todo add bodies?
+
     }
 }

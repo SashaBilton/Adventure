@@ -14,7 +14,7 @@ public class Main {
         Out.ln("\nYour stats are:");
 
         CharacterStateFactory.writeStats(game.player.rpg);
-        CommandProcess cp = new CommandProcess();
+
 
         while (game.player.isAlive) {
             if (game.player.moved) {
@@ -23,7 +23,7 @@ public class Main {
 
             }
 
-            cp.input(game);
+            CommandProcess.input(game);
         }
     }
 

@@ -9,6 +9,8 @@ import com.illusionaryterrain.adventure.rpg.Rules;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import static com.illusionaryterrain.adventure.rpg.Rules.STAMINA;
+
 public class Player {
     public Location location;
     public boolean isAlive = true;
@@ -102,21 +104,31 @@ public class Player {
     }
 
     public void fight(String foe, Game game) {
-        Creature creature = game.player.location.inhabitants.get(foe);
+        RPGSheet creature = (RPGSheet) game.player.location.inhabitants.get(foe);
 
         if (creature != null) {
-            CombatResult cr = Rules.combat(game.player.rpg, (RPGSheet)creature, game.diceBag);
+            CombatResult cr = Rules.combat(game.player.rpg, creature, game.diceBag);
             Out.ln("You rolled a "+cr.aRoll+" and the "+creature.getName()+" rolled a "+ cr.bRoll);
             Out.ln("Your total is "+cr.aTotal+" while it's is "+cr.bTotal);
             if (cr.aDamage > 0) {
                 Out.ln("You take "+cr.aDamage+" damage!");
             } else if(cr.bDamage>0) {
-                Out.ln("It takes "+cr.bDamage+" damage");
+                Out.ln("It takes "+cr.bDamage+" damage.");
             } else {
                 Out.ln("You exchange blows but neither wound each other.");
             }
-
+            if (creature.stats.get(STAMINA) < 1) {
+                Out.ln("You have slain the "+creature.name+"!");
+                game.player.location.killCreature(creature);
+            } if (game.player.rpg.stats.get(STAMINA) < 1) {
+                Out.ln("The "+creature.name+" has killed you!");
+                game.player.die();
+            }
         }
+    }
+
+    private void die() {
+        isAlive = false;
     }
 
 }

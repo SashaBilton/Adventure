@@ -45,7 +45,7 @@ public class TunnelsOfTerrorGameData {
         SimpleObject wood = new SimpleObject(ObjectItemType.USELESS, "mouldy rotten wood from a old table", "wood");
         holding.contents.add(wood);
 
-        Location p1 = new Location("A plain square room.", "a plain square room with badly white plastered walls. The stonework behind is visible in a number of places. This room is reasonably dry.");
+        Location p1 = new Location("A plain square room.", "a plain square room with flaking white plastered walls. The stonework behind is visible in a number of places. This room is reasonably dry.");
         d2w.location = p1;
         Exit d3e = new Exit("A plain old wooden door in the east wall.", "plain door", "west");
 
@@ -58,10 +58,11 @@ public class TunnelsOfTerrorGameData {
         StateChangeEvent sce = new StateChangeEvent(isce, StateType.PLAYER, "LIGHT", 1);
         HasItemEvent hie = new HasItemEvent(sce, flint, "I have nothing to light it with.");
         KeywordItemEvent ke = new KeywordItemEvent(hie, "light","candle");
+        candle.events.add(ke);
 
         p1.contents.add(flint);
         p1.contents.add(candle);
-        candle.events.add(ke);
+
 
         Location spiderroom = new Location("A hall with thick spider webs throughout.","thick ropey spiderwebs cover the walls and ceiling of this long hall. The corners are so hidden by webs they are difficult to see.");
         Creature spider = FiendFactory.createGiantSpider();
