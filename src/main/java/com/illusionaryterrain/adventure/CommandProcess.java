@@ -19,14 +19,14 @@ public class CommandProcess {
     public static void action(Game game, String... command) {
 
         switch (command[0]) {
-            case "go" -> game.player.go(command[1]);
+            case "go", "move" -> game.player.go(command[1]);
             case "look" -> game.player.location.look(game);
             case "quit","exit" -> quit(game.player);
             case "take","get" -> game.player.take(command[1]);
             case "drop", "leave" -> game.player.drop(command[1]);
             case "invent", "inventory" -> game.player.invent();
             case "help" -> help();
-            case "attack" -> game.player.fight(command[1], game);
+            case "attack", "fight" -> game.player.fight(command[1], game);
             case "--dump" ->dump(game);
             default -> eventCommand(game, command);
 

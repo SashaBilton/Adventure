@@ -9,22 +9,16 @@ public class Main {
 
         Game game = new Game();
         game.player.location = TunnelsOfTerrorGameData.Generate(game);
+        game.player.nextLocation = game.player.location;
 
         Out.ln(game.introduction);
         Out.ln("\nYour stats are:");
 
         CharacterStateFactory.writeStats(game.player.rpg);
 
+        GameProcess.loop(game);
 
-        while (game.player.isAlive) {
-            if (game.player.moved) {
-                game.player.location.enter(game);
-                game.player.moved = false;
 
-            }
-
-            CommandProcess.input(game);
-        }
     }
 
 

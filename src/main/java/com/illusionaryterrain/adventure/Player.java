@@ -13,6 +13,7 @@ import static com.illusionaryterrain.adventure.rpg.Rules.STAMINA;
 
 public class Player {
     public Location location;
+    public Location nextLocation;
     public boolean isAlive = true;
     public boolean moved = true;
 
@@ -88,7 +89,7 @@ public class Player {
                 } else {
                     location.visited = true;
                     moved = true;
-                    location = exit.location;
+                    nextLocation = exit.location;
                 }
             }
         }
@@ -127,7 +128,7 @@ public class Player {
         }
     }
 
-    private void die() {
+    public void die() {
         isAlive = false;
     }
 
